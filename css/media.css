@@ -10,8 +10,16 @@
 	}
 }
 
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: 1450px) {
 	#restaurants-list {
 	    grid-template-columns: 1fr 1fr 1fr 1fr;
 	}
+
+	body {
+		max-width: 1460px;
+		margin: 0 auto 0 auto;
+		background-image: url("../img/rest.jpg"); 
+		/* https://mynoise.net/NoiseMachines/cafeRestaurantNoiseGenerator.php */
+	}
 }
+
