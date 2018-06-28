@@ -1,6 +1,9 @@
 let restaurant;
 var newMap;
 
+//Register service worker
+DBHelper.registerServiceWorker();
+
 /**
  * Initialize map as soon as the page is loaded.
  */
