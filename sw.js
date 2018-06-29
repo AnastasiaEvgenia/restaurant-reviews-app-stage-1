@@ -4,6 +4,10 @@ self.addEventListener('install', function(evt) {
 	//installation will finish only after all files are cached
 	evt.waitUntil(
 		caches.open(mainCache).then(function(cache) {
+			//store a reference of cache in currentCache property
+			//to use it later to add content to cache
+			this.currentCache = cache;
+			//add to cache the basic files of the page
 			return cache.addAll([
 				'index.html',
 				'restaurant.html',
@@ -32,42 +36,44 @@ self.addEventListener('install', function(evt) {
 	);
 });
 
-
-//update cache and delete older caches
-self.addEventListener('activate', function(evt) {
-	evt.waitUntil(
-		caches.keys().then(function(cacheNames) {
-			return Promise.all(
-				cacheNames.filter(function(cacheName) {
-					return cacheName.startsWith('restaurant-') && cacheName != mainCache;
-				}).map(function(cacheName) {
-					return caches.delete(cacheName);
-				})
-			);
-		})
-	);
-});
-
 //fetch files from cache or network
 self.addEventListener('fetch', function(evt) {
 	console.log('Handling fetch event for', evt.request.url);
+
 	evt.respondWith(
+		//check first if requested files are already in cache
 		caches.match(evt.request).then(function(response) {
 
 			if(response) {
+				//if files are find in cache return
 				console.log('Found response in cache:', response);
 				return response;
+			} else {
+				//if files are not found in cache request them from the network
+				console.log('No response in cache. Fetching from network..');
+
+				return fetch(evt.request).then(function(response) {
+					console.log('Response from network is:', response);
+					return response;
+				}).catch(function(err) {
+					console.log('Fetching failed', err);
+				});
 			}
-
-			console.log('No response in cache. Fetching from network..');
-
-			return fetch(evt.request).then(function(response) {
-				console.log('Response from network is:', response);
-				return response;
-			}).catch(function(err) {
-				console.log('Fetching failed', err);
-			});
-		
 		})
 	);
+
+	//save to cache files that were not placed there during service worker installation
+	//this is mainly for map files. When user visits a restaurant page, images of the map
+	//are stored in cache memory. When user uses the app offline will now have access to 
+	//map images for restaurant pages he visited in the past using network connection.
+	caches.match(evt.request).then(function(response) {
+		if(!response) {
+			//if response is not found in cache get if again from network and save it in cache
+			fetch(evt.request).then(function(response) {
+				//do this by using the reference to current cache property
+				self.currentCache.put(evt.request, response);
+			});
+		}
+	});
+
 });
