@@ -21,12 +21,21 @@ other user reviews and ratings.
 
 1. Clone the GitHub repository localy.
 
-2. Project needs a local server to run. 
+2. Go into the repository folder and switch comments in code of
+
+	1. js/dbhelper.js
+	2. index.html
+	3. restaurant.html
+
+files in order to be able to run app in local server. The code
+was modified in order to run the app in GitHub pages.
+
+3. Project needs a local server to run. 
 	1. Open a bash command line window in the repository folder. 
 	2. Check if python is installed in your computer by typing `python -V` or `py -V`. If you don't have Python installed, navigate to Python's [website](https://www.python.org/) to download and install the software.
 	3. If you have Python 2.x, spin up the server with `python -m SimpleHTTPServer 8000` (or some other port, if port 8000 is already in use.) For Python 3.x, you can use `py -m http.server 8000` or `python3 -m http.server 8000`.
 
-3. When you have a server up and running, open your browser and
+4. When you have a server up and running, open your browser and
 visit the site: `http://localhost:8000`.
 
 ## Dependencies
