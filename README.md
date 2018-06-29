@@ -29,7 +29,7 @@ other user reviews and ratings.
 3. When you have a server up and running, open your browser and
 visit the site: `http://localhost:8000`.
 
-##Dependencies
+## Dependencies
 
 The starter code for this project is based on the Udacity repository
 (https://github.com/udacity/mws-restaurant-stage-1)
