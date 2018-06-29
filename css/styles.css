@@ -3,6 +3,7 @@ html {
   width: 100%;
 }
 
+
 body {
     background-color: #fdfdfd;
     margin: 0;
@@ -22,18 +23,22 @@ a:focus {
     text-decoration: none;
 }
 
+
 /* --------------------Create CSS grid-------------------- */
 .header-grid {
  grid-area: header;
 }
 
+
 .main-grid{
   grid-area: main;
 }
 
+
 .footer-grid {
   grid-area: footer;
 }
+
 
 .container {
   display: grid;
@@ -46,6 +51,7 @@ a:focus {
   "main"
   "footer";
 }
+
 
 /* --------------------Navigation/Header-------------------- */
 nav {
@@ -68,18 +74,20 @@ nav h1 a {
     text-transform: uppercase;
 }
 
-/* --------------------Main-------------------- */
 
+/* --------------------Main-------------------- */
 #maincontent {
     background-color: #f3f3f3;
     width: 100%;
 }
+
 
 /* --------------------Main/Map-------------------- */
 #map {
     min-height: 400px;
     background-color: #ccc;
 }
+
 
 /* --------------------Main/Filters-------------------- */
 .filter-options {
@@ -111,6 +119,7 @@ nav h1 a {
     padding: 0 10px;
     width: 200px;
 }
+
 
 /* --------------------Main/Restaurants-------------------- */
 #restaurants-list {
