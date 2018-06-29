@@ -8,8 +8,11 @@ class DBHelper {
         if (!navigator.serviceWorker) return;
         //Register service worker after DOM content has loaded
         window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/sw.js', {
-                scope: '/'
+            /***** Switch comments in code to run page on local servel OR on github *****/
+            // navigator.serviceWorker.register('/sw.js', {
+            //     scope: '/'
+            navigator.serviceWorker.register('/restaurant-reviews-app-stage-1/sw.js', {
+                scope: '/restaurant-reviews-app-stage-1/'
             }).then(function(reg) {
                 console.log("Service Worker Registered with scope: ", reg.scope);
             }).catch(function(err) {
@@ -25,7 +28,9 @@ class DBHelper {
      */
     static get DATABASE_URL() {
         const port = 8000 // Change this to your server port
-        return `http://localhost:${port}/data/restaurants.json`;
+        /***** Switch comments in code to run page on local servel OR on github *****/
+        // return `http://localhost:${port}/data/restaurants.json`;
+        return `https://anastasiaevgenia.github.io/restaurant-reviews-app-stage-1/data/restaurants.json`;
     }
 
     /**
@@ -166,7 +171,9 @@ class DBHelper {
      * Restaurant image URL.
      */
     static imageUrlForRestaurant(restaurant) {
-        return (`/img/${restaurant.photograph}`);
+        /***** Switch comments in code to run page on local servel OR on github *****/
+        // return (`/img/${restaurant.photograph}`);
+        return (`./img/${restaurant.photograph}`);
     }
 
     /**
