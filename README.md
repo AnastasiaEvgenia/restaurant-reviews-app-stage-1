@@ -37,3 +37,7 @@ The starter code for this project is based on the Udacity repository
 ### Leaflet.js and Mapbox:
 
 This repository uses [leafletjs](https://leafletjs.com/) with [Mapbox](https://www.mapbox.com/). Mapbox is free to use, and does not require any payment information. 
+
+## License
+
+This code is distributed under the MIT license.
