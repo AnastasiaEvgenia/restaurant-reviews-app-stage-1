@@ -6,7 +6,7 @@ self.addEventListener('install', (evt) => {
         caches.open(mainCache).then((cache) => {
             //store a reference of cache in currentCache property
             //to use it later to add content to cache
-            this.currentCache = cache;
+            self.currentCache = cache;
             //add to cache the basic files of the page
             return cache.addAll([
                 'index.html',
