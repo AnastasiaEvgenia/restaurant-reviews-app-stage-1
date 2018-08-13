@@ -38,6 +38,9 @@ was modified in order to run the app in GitHub pages.
 4. When you have a server up and running, open your browser and
 visit the site: `http://localhost:8000`.
 
+5. App is currently running on Github Pages. Change comments
+in index.html, restaurant.html and dbhelper.js to run localy.
+
 ## Dependencies
 
 The starter code for this project is based on the Udacity repository
